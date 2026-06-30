@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="3">
+        <tr>
+            <th>Enter First Number</th>
+            <td><input type="number" id="n1"></td>
+        </tr>
+
+        <tr>
+            <th>Enter Second Number</th>
+            <td><input type="number" id="n2"></td>
+        </tr>
+
+        <tr>
+            <th>Sum is</th>
+            <td><input type="number" id="mysum" readonly>
+                <input type="button" value="Sum" onclick="sum()"></td>
+        </tr>
+
+        <tr>
+            <th>Sub is</th>
+            <td><input type="number" id="mysub" readonly>
+                <input type="button" value="Subtract" onclick="subtract()"></td>
+        </tr>
+
+        <tr>
+            <th>Multiplication is</th>
+            <td><input type="number" id="mymulti" readonly>
+                <input type="button" value="Multiply" onclick="multiply()"></td>
+        </tr>
+
+        <tr>
+            <th>Division is</th>
+            <td><input type="number" id="mydiv" readonly>
+                <input type="button" value="Divide" onclick="divide()"></td>
+        </tr>
+
+        <tr>
+        <td colspan="2" style="text-align: center;"><input type="button" value="All task" onclick="calc()"></td>
+        </tr>
+    </table>
+    <script>
+        function calc()
+        {
+            let a= parseInt(document.getElementById ('n1').value);
+            let b= parseInt(document.getElementById ('n2').value);
+            document.getElementById('mysum').value=a+b;
+            document.getElementById('mysub').value=a-b;
+            document.getElementById('mymulti').value=a*b;
+            document.getElementById('mydiv').value=a/b;
+        }
+        function sum()
+        {
+            let a= parseInt(document.getElementById ('n1').value);
+            let b= parseInt(document.getElementById ('n2').value);
+            document.getElementById('mysum').value=a+b;
+        }
+        function subtract()
+        {
+            let a= parseInt(document.getElementById ('n1').value);
+            let b= parseInt(document.getElementById ('n2').value);
+            document.getElementById('mysub').value=a-b;
+        }
+        function multiply()
+        {
+            let a= parseInt(document.getElementById ('n1').value);
+            let b= parseInt(document.getElementById ('n2').value);
+            document.getElementById('mymulti').value=a*b;
+        }
+        function divide()
+        {
+            let a= parseInt(document.getElementById ('n1').value);
+            let b= parseInt(document.getElementById ('n2').value);
+            document.getElementById('mydiv').value=a/b;
+        }
+    </script>
+</body>
+</html>

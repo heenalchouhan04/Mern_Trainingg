@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline – Tributes of India</title>
+    <meta name="description" content="Explore the historic timeline of India's greatest legends and their milestones.">
+    <link rel="stylesheet" href="webpage_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Page hero ── */
+        .page-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            border-bottom: 1px solid rgb(77, 60, 17);
+            background: radial-gradient(ellipse at center, hsl(210,60%,10%) 0%, hsl(210,91%,4%) 70%);
+        }
+        .page-hero h3 {
+            font-size: 18px;
+            color: #d9a441;
+            letter-spacing: 6px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 10px;
+        }
+        .page-hero h1 {
+            font-size: 70px;
+            color: goldenrod;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 16px;
+        }
+        .page-hero p {
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── Legend selector ── */
+        .legend-selector {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            padding: 30px 20px 20px;
+            flex-wrap: wrap;
+        }
+        .sel-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid #d9a441;
+            color: #d9a441;
+            border-radius: 30px;
+            padding: 8px 20px;
+            width: auto;
+            height: auto;
+            font-size: 12px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-right: 0;
+        }
+        .sel-btn img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .sel-btn:hover,
+        .sel-btn.active {
+            background: #d9a441;
+            color: #04152d;
+            box-shadow: 0 0 20px #d9a441;
+        }
+
+        /* ── Main timeline ── */
+        .timeline-section {
+            padding: 40px 80px 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .timeline-section h2 {
+            text-align: center;
+            color: #d9a441;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 4px;
+            margin-bottom: 50px;
+        }
+
+        .vtimeline {
+            position: relative;
+            padding: 0 0 40px 0;
+        }
+        .vtimeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, rgb(77,60,17), rgb(217,164,65), rgb(77,60,17), transparent);
+            transform: translateX(-50%);
+        }
+
+        .vt-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .vt-item.right {
+            flex-direction: row-reverse;
+        }
+        .vt-content {
+            flex: 1;
+            background: linear-gradient(145deg, hsl(210,60%,8%), hsl(210,91%,4%));
+            border: 1px solid rgb(77,60,17);
+            border-radius: 14px;
+            padding: 24px 28px;
+            transition: 0.4s;
+            position: relative;
+        }
+        .vt-content:hover {
+            border-color: #d9a441;
+            box-shadow: 0 0 24px rgba(217,164,65,0.25);
+        }
+        .vt-content::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            background: rgb(77,60,17);
+            border: 2px solid #d9a441;
+            border-radius: 50%;
+        }
+        .vt-item:not(.right) .vt-content::after {
+            right: -49px;
+        }
+        .vt-item.right .vt-content::after {
+            left: -49px;
+        }
+        .vt-year {
+            flex: 0 0 80px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: #d9a441;
+            padding-top: 20px;
+            font-weight: bold;
+        }
+        .vt-content h3 {
+            font-family: 'Cinzel', serif;
+            color: #d9a441;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .vt-content .vt-who {
+            font-size: 11px;
+            color: #d9a441;
+            background: rgba(217,164,65,0.1);
+            border: 1px solid rgba(217,164,65,0.3);
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .vt-content p {
+            font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ccc;
+            line-height: 1.7;
+        }
+        .vt-content img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgb(77,60,17);
+            float: right;
+            margin-left: 14px;
+        }
+        .era-divider {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+        .era-divider span {
+            background: hsl(210,91%,4%);
+            padding: 0 20px;
+            font-family: 'Cinzel', serif;
+            color: #d9a441;
+            font-size: 14px;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 1;
+        }
+        .era-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0; right: 0;
+            height: 1px;
+            background: rgb(77,60,17);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════ HEADER ════ -->
+    <div class="header">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxeBgXlpGKj8xtMNPgb8njNWDG4lwBwS4z2g&s" width="50px" alt="chakra">
+        <div class="title">
+            <h5>TRIBUTES OF INDIA</h5>
+            <p>THE LEGENDS.OUR PRIDE.</p>
+        </div>
+        <nav>
+            <a href="webpage_backend.html">HOME</a>
+            <a href="legends.html">LEGENDS</a>
+            <a href="timeline.html" style="color:#d9a441;">TIMELINE</a>
+            <a href="quotes.html">QUOTES</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+            <button class="btn liquid" onclick="location.href='legends.html'">Explore Legends</button>
+        </nav>
+    </div>
+
+    <!-- ════ HERO ════ -->
+    <div class="page-hero">
+        <h3>INDIA'S JOURNEY</h3>
+        <h1>TIMELINE</h1>
+        <p>A chronological journey through the defining moments of India's greatest legends — from the freedom struggle to modern India.</p>
+    </div>
+
+    <!-- ════ TIMELINE SECTION ════ -->
+    <section class="timeline-section">
+        <h2>MILESTONES THROUGH TIME</h2>
+
+        <div class="vtimeline">
+
+            <!-- 1800s -->
+            <div class="era-divider"><span>THE 1800s – SEEDS OF AWAKENING</span></div>
+
+            <div class="vt-item">
+                <div class="vt-year">1858</div>
+                <div class="vt-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Rabindranath_Tagore_in_1909.jpg/440px-Rabindranath_Tagore_in_1909.jpg" alt="Tagore">
+                    <div class="vt-who">RABINDRANATH TAGORE</div>
+                    <h3>Birth of a Literary Legend</h3>
+                    <p>Rabindranath Tagore is born in Calcutta, destined to become the first non-European Nobel Laureate in Literature and composer of India's national anthem.</p>
+                </div>
+            </div>
+
+            <div class="vt-item right">
+                <div class="vt-year">1869</div>
+                <div class="vt-content">
+                    <img src="https://t4.ftcdn.net/jpg/15/08/09/61/360_F_1508096123_3x8YzT8snV4Af4ilrJwWy240nwkf3gfT.jpg" alt="Gandhi">
+                    <div class="vt-who">MAHATMA GANDHI</div>
+                    <h3>Birth of the Father of the Nation</h3>
+                    <p>Mohandas Karamchand Gandhi is born in Porbandar, Gujarat. He would go on to lead India's non-violent independence movement that would inspire the world.</p>
+                </div>
+            </div>
+
+            <div class="vt-item">
+                <div class="vt-year">1888</div>
+                <div class="vt-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/CV_Raman.OGG.jpg/440px-CV_Raman.OGG.jpg" alt="Raman">
+                    <div class="vt-who">C. V. RAMAN</div>
+                    <h3>Birth of a Nobel Physicist</h3>
+                    <p>Sir C.V. Raman is born in Tiruchirapalli. His discovery of the Raman Effect would earn him the Nobel Prize in Physics in 1930, a first for Asia in science.</p>
+                </div>
+            </div>
+
+            <!-- 1900s -->
+            <div class="era-divider"><span>THE 1900s – RISE OF FREEDOM</span></div>
+
+            <div class="vt-item right">
+                <div class="vt-year">1907</div>
+                <div class="vt-content">
+                    <img src="https://i.pinimg.com/474x/70/d8/a2/70d8a263bb6d02f86504a703b852b00d.jpg" alt="Bhagat Singh">
+                    <div class="vt-who">BHAGAT SINGH</div>
+                    <h3>The Revolutionary is Born</h3>
+                    <p>Bhagat Singh is born in Banga, Punjab. He would become one of the most influential revolutionaries of the Indian independence movement, inspiring generations.</p>
+                </div>
+            </div>
+
+            <div class="vt-item">
+                <div class="vt-year">1913</div>
+                <div class="vt-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Rabindranath_Tagore_in_1909.jpg/440px-Rabindranath_Tagore_in_1909.jpg" alt="Tagore">
+                    <div class="vt-who">RABINDRANATH TAGORE</div>
+                    <h3>Nobel Prize in Literature</h3>
+                    <p>Tagore wins the Nobel Prize in Literature for his collection Gitanjali, becoming the first non-European Nobel laureate and placing India on the world's cultural map.</p>
+                </div>
+            </div>
+
+            <div class="vt-item right">
+                <div class="vt-year">1930</div>
+                <div class="vt-content">
+                    <img src="https://t4.ftcdn.net/jpg/15/08/09/61/360_F_1508096123_3x8YzT8snV4Af4ilrJwWy240nwkf3gfT.jpg" alt="Gandhi">
+                    <div class="vt-who">MAHATMA GANDHI</div>
+                    <h3>Salt March (Dandi March)</h3>
+                    <p>Gandhi leads the famous 241-mile march to Dandi to protest British salt taxes, igniting mass civil disobedience across India and drawing global attention to Indian independence.</p>
+                </div>
+            </div>
+
+            <div class="vt-item">
+                <div class="vt-year">1930</div>
+                <div class="vt-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/CV_Raman.OGG.jpg/440px-CV_Raman.OGG.jpg" alt="Raman">
+                    <div class="vt-who">C. V. RAMAN</div>
+                    <h3>Nobel Prize in Physics</h3>
+                    <p>C.V. Raman receives the Nobel Prize for his discovery of the scattering of light (Raman Effect), making him the first Asian scientist to win a Nobel Prize in science.</p>
+                </div>
+            </div>
+
+            <div class="vt-item right">
+                <div class="vt-year">1931</div>
+                <div class="vt-content">
+                    <img src="https://i.pinimg.com/736x/ab/07/98/ab079870aba6c7e1c4323f2e9b98a833.jpg" alt="Kalam">
+                    <div class="vt-who">A.P.J. ABDUL KALAM</div>
+                    <h3>Birth of the Missile Man</h3>
+                    <p>Avul Pakir Jainulabdeen Abdul Kalam is born in Rameswaram, Tamil Nadu. He would become India's greatest aerospace scientist and the 11th President of India.</p>
+                </div>
+            </div>
+
+            <!-- India's Independence -->
+            <div class="era-divider"><span>1947 – INDIA'S INDEPENDENCE</span></div>
+
+            <div class="vt-item">
+                <div class="vt-year">1947</div>
+                <div class="vt-content">
+                    <img src="https://t4.ftcdn.net/jpg/15/08/09/61/360_F_1508096123_3x8YzT8snV4Af4ilrJwWy240nwkf3gfT.jpg" alt="Gandhi">
+                    <div class="vt-who">INDIA</div>
+                    <h3>Independence from British Rule</h3>
+                    <p>India gains independence on August 15, 1947. The culmination of decades of struggle led by Gandhi, Bose, Nehru, Patel and countless others who sacrificed everything for a free India.</p>
+                </div>
+            </div>
+
+            <div class="vt-item right">
+                <div class="vt-year">1950</div>
+                <div class="vt-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Dr._Bhimrao_Ambedkar.jpg/440px-Dr._Bhimrao_Ambedkar.jpg" alt="Ambedkar">
+                    <div class="vt-who">B. R. AMBEDKAR</div>
+                    <h3>Constitution of India Adopted</h3>
+                    <p>The Constitution of India, principally drafted by Dr. B.R. Ambedkar, comes into force on January 26. India becomes the world's largest democracy with a comprehensive charter of rights.</p>
+                </div>
+            </div>
+
+            <!-- Modern Era -->
+            <div class="era-divider"><span>MODERN ERA – BUILDING INDIA</span></div>
+
+            <div class="vt-item">
+                <div class="vt-year">1969</div>
+                <div class="vt-content">
+                    <img src="https://i.pinimg.com/736x/ab/07/98/ab079870aba6c7e1c4323f2e9b98a833.jpg" alt="Kalam">
+                    <div class="vt-who">A.P.J. ABDUL KALAM</div>
+                    <h3>Kalam Joins ISRO</h3>
+                    <p>Abdul Kalam joins ISRO and leads the team that developed India's first satellite launch vehicle, SLV-III, which successfully deployed the Rohini satellite into orbit in 1980.</p>
+                </div>
+            </div>
+
+            <div class="vt-item right">
+                <div class="vt-year">1998</div>
+                <div class="vt-content">
+                    <img src="https://i.pinimg.com/736x/ab/07/98/ab079870aba6c7e1c4323f2e9b98a833.jpg" alt="Kalam">
+                    <div class="vt-who">A.P.J. ABDUL KALAM</div>
+                    <h3>Pokhran-II Nuclear Tests</h3>
+                    <p>Kalam plays a pivotal role in India's second series of nuclear weapon tests, Pokhran-II. The tests make India a nuclear-armed state and cement Kalam's place in history.</p>
+                </div>
+            </div>
+
+            <div class="vt-item">
+                <div class="vt-year">2002</div>
+                <div class="vt-content">
+                    <img src="https://i.pinimg.com/736x/ab/07/98/ab079870aba6c7e1c4323f2e9b98a833.jpg" alt="Kalam">
+                    <div class="vt-who">A.P.J. ABDUL KALAM</div>
+                    <h3>11th President of India</h3>
+                    <p>Abdul Kalam is elected as the 11th President of India, becoming the first scientist to hold the office. Beloved as the 'People's President', he continues to inspire millions of students.</p>
+                </div>
+            </div>
+
+            <div class="vt-item right">
+                <div class="vt-year">2015</div>
+                <div class="vt-content">
+                    <img src="https://i.pinimg.com/736x/ab/07/98/ab079870aba6c7e1c4323f2e9b98a833.jpg" alt="Kalam">
+                    <div class="vt-who">A.P.J. ABDUL KALAM</div>
+                    <h3>A Star Returns to the Stars</h3>
+                    <p>Dr. Kalam passes away on July 27, 2015 while delivering a lecture at IIM Shillong — doing what he loved most, inspiring young minds. His legacy lives on eternally.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════ FOOTER ════ -->
+    <footer style="background-image: url('footer_bg.png'); background-size: cover;">
+        <div class="footer-logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxeBgXlpGKj8xtMNPgb8njNWDG4lwBwS4z2g&s" width="60px" height="50px" alt="logo">
+            <h3>TRIBUTES OF INDIA</h3>
+            <p style="align-items:center;">Honoring the legends who shaped our nation.</p>
+        </div>
+        <div class="quicklinks">
+            <h5>QUICK LINKS</h5>
+            <p><a href="webpage_backend.html" style="color:#aaa;text-decoration:none;">Home</a></p>
+            <p><a href="legends.html" style="color:#aaa;text-decoration:none;">Legends</a></p>
+            <p><a href="timeline.html" style="color:#aaa;text-decoration:none;">Timeline</a></p>
+            <p><a href="quotes.html" style="color:#aaa;text-decoration:none;">Quotes</a></p>
+            <p><a href="gallery.html" style="color:#aaa;text-decoration:none;">Gallery</a></p>
+            <p><a href="about.html" style="color:#aaa;text-decoration:none;">About Us</a></p>
+        </div>
+        <div class="follow">
+            <h5 style="text-align:center;">FOLLOW US</h5>
+            <img src="https://www.shutterstock.com/shutterstock/videos/1079349812/thumb/1.jpg?ip=x480" width="150px" height="60px" alt="social">
+        </div>
+        <div class="newsletter">
+            <h5>NEWS LETTER</h5>
+            <p>Subscribe to get updates about our legends.</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+
+</body>
+</html>

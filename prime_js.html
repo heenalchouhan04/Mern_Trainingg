@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPrime(num){
+            if(num < 2) return false;
+            let prime = 0;
+            for(let i=1 ; i<=num ; i++){
+                if(num % i === 0){
+                    prime++;
+                }
+            }
+            return prime === 2;
+        }
+        let n = parseInt(prompt("Enter a number: "));
+        if(isPrime(n)){
+            document.write(n + " is a prime number");
+        } else {
+            document.write(n + " is not a prime number");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stopwatch</title>
+  <!--<style>
+    body {
+      font-family: Arial;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #stopwatch {
+      border: 2px solid black;
+      width: 300px;
+      padding: 20px;
+      background: white;
+      text-align: center;
+    }
+    #display {
+      font-size: 40px;
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>-->
+</head>
+<body>
+  <div id="stopwatch">
+    <h1>Stopwatch</h1>
+    <div id="display">00:00:00</div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+  </div>
+
+  <script>
+    let display = document.getElementById("display");
+    let timer = null;
+    let seconds = 0;
+
+    function formatTime(sec) {
+      let hrs = Math.floor(sec / 3600);
+      let mins = Math.floor((sec % 3600) / 60);
+      let secs = sec % 60;
+
+      return (
+        String(hrs).padStart(2, "0") + ":" +
+        String(mins).padStart(2, "0") + ":" +
+        String(secs).padStart(2, "0")
+      );
+    }
+
+    document.getElementById("start").addEventListener("click", function() {
+      if (!timer) {
+        timer = setInterval(() => {
+          seconds++;
+          display.textContent = formatTime(seconds);
+        }, 1000);
+      }
+    });
+
+    document.getElementById("stop").addEventListener("click", function(){
+        clearInterval(timer);
+        timer = null;
+    });
+
+    document.getElementById("reset").addEventListener("click", function(){
+        
+    });
+     </script>
+</body>
+</html>

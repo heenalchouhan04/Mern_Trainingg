@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="3">
+        <tr>
+            <th>Enter marks of 1st subject</th>
+            <td><input type="number" id="n1"></td>
+        </tr>
+        <tr>
+            <th>Enter marks of 2nd subject</th>
+            <td><input type="number" id="n2"></td>
+        </tr>
+         <tr>
+            <th>Enter marks of 3rd subject</th>
+            <td><input type="number" id="n3"></td>
+        </tr>
+         <tr>
+            <th>Enter marks of 4th subject</th>
+            <td><input type="number" id="n4"></td>
+        </tr>
+         <tr>
+            <th>Enter marks of 5th subject</th>
+            <td><input type="number" id="n5"></td>
+        </tr>
+        <tr>
+            <th>Total is</th>
+            <td><input type="number" id="total"></td>
+        </tr>
+         <tr>
+            <th>Percentage</th>
+            <td><input type="number" id="percentage">%</td>
+        </tr>
+        <tr>
+            <th>Pass or Fail</th>
+            <td><input type="text" id="PorF"></td>
+        </tr>
+        <tr>
+        <td colspan="2" style="text-align: center;"><input type="button" value="Click Me!!!" onclick="calc()"></td>
+        </tr>
+
+    </table>
+    <script>
+        function calc()
+        {
+            let a= parseInt(document.getElementById ('n1').value);
+            let b= parseInt(document.getElementById ('n2').value);
+            let c= parseInt(document.getElementById ('n3').value);
+            let d= parseInt(document.getElementById ('n4').value);
+            let e= parseInt(document.getElementById ('n5').value);
+            document.getElementById('total').value=a+b+c+d+e;
+            let percentage=document.getElementById('percentage').value=(a+b+c+d+e)/5;
+            if(percentage>33){
+                document.getElementById('PorF').value=("Pass");
+                document.getElementById('PorF').style.backgroundColor="green";
+                document.getElementById('PorF').style.color="White";
+
+            }else{
+                document.getElementById('PorF').value=("Fail");
+                document.getElementById('PorF').style.backgroundColor="red";
+                document.getElementById('PorF').style.color="White";
+            }
+        }
+    </script>
+</body>
+</html>

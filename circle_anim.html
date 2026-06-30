@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+}
+
+.box{
+    width:100px;
+    height:100px;
+    background:red;
+    position:absolute;
+    border-radius: 100%;
+    animation:move 5s infinite;
+}
+
+@keyframes move{
+
+    0%{
+        top:0;
+        left:0;
+    }
+
+    25%{
+        top:0;
+        left:80%;
+        background:yellow;
+    }
+
+    50%{
+        top:80%;
+        left:80%;
+        background:blue;
+    }
+
+    75%{
+        top:80%;
+        left:0;
+        background:green;
+    }
+
+    100%{
+        top:0;
+        left:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box"></div>
+
+</body>
+</html>

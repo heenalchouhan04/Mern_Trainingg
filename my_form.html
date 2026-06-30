@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Animated Form</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+    135deg,
+    #141e30,
+    #243b55);
+    overflow:hidden;
+}
+
+/* Background Glow */
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(50px);
+    animation:float 6s infinite ease-in-out;
+}
+
+.c1{
+    width:250px;
+    height:250px;
+    background:rgba(0,255,255,.3);
+    top:10%;
+    left:10%;
+}
+
+.c2{
+
+    width:200px;
+    height:200px;
+    background:rgba(255,0,255,.3);
+    bottom:10%;
+    right:10%;
+    animation-delay:2s;
+}
+
+/* Floating Animation */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-30px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* Form Container */
+
+.form-box{
+    width:400px;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:2px solid rgba(255,255,255,.2);
+    box-shadow:
+    0 0 20px rgba(0,255,255,.4),
+    0 0 50px rgba(0,255,255,.2);
+    position:relative;
+    transition:.5s;
+}
+
+/* Hover Effect */
+
+.form-box:hover{
+    transform:scale(1.03);
+    box-shadow:
+    0 0 30px cyan,
+    0 0 60px cyan;
+}
+
+/* Heading */
+
+.form-box h1{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:40px;
+    text-shadow:
+    0 0 10px cyan;
+}
+
+/* Input Box */
+
+.input-box{
+    position:relative;
+    margin-bottom:30px;
+}
+
+/* Input */
+
+.input-box input{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.1);
+    color:white;
+    font-size:18px;
+    border:2px solid transparent;
+    transition:.5s;
+}
+
+/* Input Focus */
+
+.input-box input:focus{
+
+    border-color:cyan;
+    box-shadow:
+    0 0 10px cyan,
+    0 0 30px cyan;
+}
+
+/* Placeholder */
+
+.input-box input::placeholder{
+    color:#ddd;
+}
+
+/* Button */
+
+.btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    font-size:22px;
+    color:white;
+    cursor:pointer;
+    background:linear-gradient(
+    45deg,
+    cyan,
+    magenta);
+    background-size:300% 300%;
+    animation:gradient 4s infinite linear;
+    transition:.5s;
+}
+
+/* Gradient Animation */
+
+@keyframes gradient{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:100% 50%;
+    }
+}
+
+/* Button Hover */
+
+.btn:hover{
+    transform:scale(1.05);
+    letter-spacing:2px;
+    box-shadow:
+    0 0 20px cyan,
+    0 0 50px magenta;
+}
+
+/* Extra Links */
+
+.links{
+    margin-top:20px;
+    text-align:center;
+}
+
+.links a{
+    color:white;
+    text-decoration:none;
+    transition:.5s;
+}
+
+/* Link Hover */
+
+.links a:hover{
+    color:cyan;
+    text-shadow:
+    0 0 10px cyan;
+}
+
+/* Responsive */
+
+@media(max-width:500px){
+
+    .form-box{
+        width:90%;
+        padding:30px;
+    }
+
+    .form-box h1{
+        font-size:32px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Background Glow -->
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+<!-- Form -->
+
+<div class="form-box">
+    <h1>Login</h1>
+    <form>
+        <div class="input-box">
+            <input type="text" placeholder="Enter Username">
+        </div>
+
+        <div class="input-box">
+            <input type="password" placeholder="Enter Password">
+        </div>
+
+        <button class="btn">
+            Login
+        </button>
+
+        <div class="links">
+            <br>
+            <a href="#">
+                Forgot Password?
+            </a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

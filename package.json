@@ -1,0 +1,11 @@
+{
+  "name": "vsir",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx http-server . -c-1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

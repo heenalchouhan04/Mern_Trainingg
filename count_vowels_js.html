@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //vowels count
+        /*let str = "heenal";
+        let i = 0;
+        let count = 0;
+
+        while(i<str.length){
+            if("aeiou".includes(str[i])){
+                count++;
+            }
+            i++;
+        }
+        document.write("Vowels: " +count);*/
+
+        //repeatation  remove using set
+        /*let str = "heenal";
+        let set = new Set(str);
+        let i = 0;
+        let count = 0;
+        str = [...set];
+
+        while(i<set.size){
+            if("aeiou".includes(str[i])){
+                count++;
+            }
+            i++;
+        }
+        document.write("Vowels: " +count);*/
+
+        //frequency count
+        //Logic 1
+        /*let str = "aaabbbbcccccdddddee";
+        let set = new Set(str);
+        let checkStr = [...set];
+        for(let i = 0; i < checkStr.length; i++){
+            let count = 0;
+            for(let j = 0; j < str.length; j++){
+                if(checkStr[i] == str[j]){
+                    count++;
+                }
+            }
+            document.write("Frequency of " +checkStr[i]+ " is " +count+ "<br>"); 
+        }*/
+
+        //Logic 2
+        let arr = [1,2,2,3,1,2,4];
+        let freq = {};
+
+
+        arr.forEach(num =>{
+            freq[num] = (freq[num] || 0) + 1;
+        });
+
+        for(key in freq){
+            document.write(`${key} : ${freq[key]}<br>`);
+        }
+
+    </script>
+</body>
+</html>

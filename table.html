@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>table</title>
+    <style>
+        body{
+            font-family:Arial;
+        }
+        table{
+            width: 70px;
+            margin:auto;
+            border-collapse: collapse;  
+        }
+
+        th.td{
+            border:1px solid black;
+            padding: 4px;
+            border-radius: 5px;
+        }
+
+       /*row zebra striping*/
+        tr:nth-child(even){
+            background-color:lightblue;
+        }
+        tr:nth-child(odd){
+            background-color:lightgreen;
+        }
+
+        /*column zebra striping*/
+        th:nth-child(even), td:nth-child(even){
+            background-color:lightblue;
+        }
+
+        /*hover effect*/
+        tr:hover{
+            background-color:yellow;
+        }
+
+
+    </style>
+    </head>
+    <body>
+        <table border="2">
+
+        <caption>Student Contact</caption>
+        <tr>
+            <td>Name</td>
+            <td>Roll No.</td>
+            <td>Marks</td>
+            <td>Mobile No.</td>
+        </tr>
+
+        <tr>
+            <td>John Doe</td>
+            <td>1</td>
+            <td>85</td>
+            <td>9876543210</td>
+        </tr>
+        <tr>
+            <td>Jane Smith</td>
+            <td>2</td>
+            <td>90</td>
+            <td>9876543211</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </table>
+    </body>
+    </html>
