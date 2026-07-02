@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Boxes</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, Pink, white);
+      font-family: Arial, sans-serif;
+    }
+    .horizontal-box, .vertical-box {
+      display: inline-flex;
+      gap: 20px;
+      border: 3px solid #333;
+      padding: 20px;
+      border-radius: 12px;
+      background: black;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .horizontal-box {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .vertical-box {
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+    }
+    .item {
+      padding: 20px 30px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      transition: transform 0.3s;
+    }
+    .item:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    .box1 { background: linear-gradient(135deg, #ff7eb9, white); }
+    .box2 { background: linear-gradient(135deg, #6b11cb8b, white); }
+    .box3 { background: linear-gradient(135deg, #00c8ffa9, white); }
+    .boxA { background: linear-gradient(135deg, #f7951e92, white); }
+    .boxB { background: linear-gradient(135deg, #11998ead, white); }
+    .boxC { background: linear-gradient(135deg, #c60a23e9, white); }
+  </style>
+</head>
+<body>
+  <div class="horizontal-box">
+    <div class="item box1">Box 1</div>
+    <div class="item box2">Box 2</div>
+    <div class="item box3">Box 3</div>
+  </div>
+  <div class="vertical-box">
+    <div class="item boxA">Box A</div>
+    <div class="item boxB">Box B</div>
+    <div class="item boxC">Box C</div>
+  </div>
+</body>
+</html>
