@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .container{
+            background-color: rgba(101, 79, 101, 0.874);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 900px;
+            height: 600px;
+            margin: 50px auto;
+        }
+
+        .container h4{
+            color:darkgray;
+        }
+
+        .container img {
+            border-radius: 20px;
+            width: 50%;
+        }
+
+        .container form {
+            width: 45%;
+        }
+
+        form h2 {
+            margin-bottom: 10px;
+            }
+
+        form h4 {
+            color: darkgray;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        input[type="text"]  {
+            padding: 15px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4a2f4a;
+        }
+
+        input[type="email"], input[type="password"]{
+            padding: 15px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4a2f4a;
+            width: 90%;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 15px;
+            margin-left: 8px;
+        }
+
+        a {
+            color: plum;
+            text-decoration: underline;
+        }
+
+        button[type="submit"] {
+            padding: 13px;
+            margin: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: plum;
+            transition: background-color 0.3s;
+            width: 90%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color:rgb(106, 65, 106);
+        }
+
+        button[type="btn-google"], button[type="btn-apple"] {
+            padding: 13px;
+            margin: 10px;
+            border: 1.5px solid white;
+            border-radius: 6px;
+            background-color: transparent;
+            transition: background-color 0.3s;
+            width: 42%;
+            font-size: 16px;
+        }
+        p {
+           text-align: center;
+           margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+            <img src="https://img.magnific.com/free-vector/wild-northern-land-night-landscape-cartoon_1441-3177.jpg" alt="Image" width="500" height="580">
+
+        <form>
+        <h2>Create an Account</h2>
+        <h4>Already have an account? <a href="#log in">Log in</a></h4>
+
+        <input type="text" id="fname" name="first name" placeholder="First Name" required>
+        <input type="text" id="lname" name="last name" placeholder="Last Name" required><br>
+        <input type="email" id="email" name="email" placeholder="Email" required><br>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+
+        <input type="checkbox" required> I agree to the <a href="#terms">terms & conditions</a><br>
+
+        <button type="submit">Create Account</button>
+
+        <p>or register with</p>
+
+        <button type="btn-google"> <img src="https://www.citypng.com/public/uploads/preview/google-logo-icon-gsuite-hd-701751694791470gzbayltphh.png" 
+            style="width: 20px; height: 20px; vertical-align:sub;"> Google</button>
+
+        <button type="btn-apple"> 
+            <img src="https://substackcdn.com/image/fetch/$s_!G1lk!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8ed3d547-94ff-48e1-9f20-8c14a7030a02_2000x2000.jpeg"
+            style="width: 22px; height: 22px; vertical-align: sub;"> Apple</button>
+    </form>
+    </div>
+</body>
+</html>
